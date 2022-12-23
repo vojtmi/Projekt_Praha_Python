@@ -12,6 +12,8 @@ print("-" * znakovac)
 
 prvni = Pojistnik("Ivan", "Vopršálek", 38, 123456789)
 pojisteni.append(prvni)
+prvni = Pojistnik("Marek", "Nalezený", 32, 147852369)
+pojisteni.append(prvni)
 
 while not konec:
     print("Vyberte si akci: ")
@@ -19,12 +21,20 @@ while not konec:
     print("2 - Vypsat vsechny pojistene")
     print("3 - Vyhledat pojistneho")
     print("4 - Konec")
-    vyber = int(input())
+    try:
+        vyber = int(input())
+    except ValueError:
+        print("Neplatná volba")
+        continue
     if vyber == 1:
         jmeno = input("Zadejte jméno: ")
         prijmeni = input("Zadejte příjmení: ")
-        vek = int(input("Zadejte věk: "))
-        telefon = int(input("Zadejte telefoní číslo: "))
+        try:
+            vek = int(input("Zadejte věk: "))
+            telefon = int(input("Zadejte telefoní číslo: "))
+        except ValueError:
+            print("\n Nemělo by to být náhodou číslo?\n Zkus to znovu.\n")
+            continue
 
         novy = Pojistnik(jmeno, prijmeni, vek, telefon)
         pojisteni.append(novy)
@@ -49,11 +59,14 @@ while not konec:
         print("*" * znakovac)
         jmeno = input("Zadejte jméno: ")
         prijmeni = input("Zadejte příjmení: ")
-        search_indices = [index for (index, item) in enumerate(pojisteni) if item.jmeno == jmeno or item.prijmeni]
+        search_indices = [index for (index, item) in enumerate(pojisteni) if item.jmeno == jmeno or item.prijmeni == prijmeni]
+        print("*" * znakovac)
         pause
-        for i in search_indices:
-            print(pojisteni[i])
-
+        if len(search_indices) > 0:
+            for i in search_indices:
+                print(pojisteni[i])
+        else:
+            print("Nikdo takový tady není.")
         print("*" * znakovac)
         input("Pokračujte libovolnou klávesou... ")
         print("")
