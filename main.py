@@ -2,10 +2,11 @@ from pojistnik import Pojistnik
 
 pojisteni = []
 konec = False
+znakovac = 60
 
-print("-" * 60)
+print("-" * znakovac)
 print("Evidence pojištěných")
-print("-" * 60)
+print("-" * znakovac)
 
 prvni = Pojistnik("Ivan", "Vopršálek", 38, 123456789)
 pojisteni.append(prvni)
@@ -29,17 +30,28 @@ while not konec:
         print("")
 
     elif vyber == 2:
-        print("*"*60)
+        print("*" * znakovac)
         print("Seznam pojištěných: ")
-        print("*"*60)
+        print("*"*znakovac)
         for klient in pojisteni:
             print(klient)
-        print("*"*60)
+        print("*" * znakovac)
         input("Pokračujte libovolnou klávesou... ")
         print("")
             
     elif vyber == 3:
-        pass
+        print("*" * znakovac)
+        print("Zahajuji vyhledávání")
+        print("*" * znakovac)
+        jmeno = input("Zadejte jméno: ")
+        prijmeni = input("Zadejte příjmení: ")
+        search_indices = [index for (index, item) in enumerate(pojisteni) if item.jmeno == jmeno or item.prijmeni]
+                
+        print(search_indices)
+        print("*" * znakovac)
+        input("Pokračujte libovolnou klávesou... ")
+        print("")
+                
     elif vyber == 4:
         konec = True
     else:
