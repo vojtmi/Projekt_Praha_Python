@@ -1,8 +1,10 @@
 from pojistnik import Pojistnik
+import time
 
 pojisteni = []
 konec = False
 znakovac = 60
+pause = time.sleep(1)
 
 print("-" * znakovac)
 print("Evidence pojištěných")
@@ -26,6 +28,7 @@ while not konec:
 
         novy = Pojistnik(jmeno, prijmeni, vek, telefon)
         pojisteni.append(novy)
+        pause
         input("Data jsou uložena. Pokračujte libovolnou klávesou... ")
         print("")
 
@@ -33,6 +36,7 @@ while not konec:
         print("*" * znakovac)
         print("Seznam pojištěných: ")
         print("*"*znakovac)
+        pause
         for klient in pojisteni:
             print(klient)
         print("*" * znakovac)
@@ -46,7 +50,7 @@ while not konec:
         jmeno = input("Zadejte jméno: ")
         prijmeni = input("Zadejte příjmení: ")
         search_indices = [index for (index, item) in enumerate(pojisteni) if item.jmeno == jmeno or item.prijmeni]
-        
+        pause
         for i in search_indices:
             print(pojisteni[i])
 
