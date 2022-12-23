@@ -46,8 +46,10 @@ while not konec:
         jmeno = input("Zadejte jméno: ")
         prijmeni = input("Zadejte příjmení: ")
         search_indices = [index for (index, item) in enumerate(pojisteni) if item.jmeno == jmeno or item.prijmeni]
-                
-        print(search_indices)
+        
+        for i in search_indices:
+            print(pojisteni[i])
+
         print("*" * znakovac)
         input("Pokračujte libovolnou klávesou... ")
         print("")
