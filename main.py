@@ -24,7 +24,7 @@ while not konec:
     try:
         vyber = int(input())
     except ValueError:
-        print("Neplatná volba")
+        print("Neplatná volba zkus to znova")
         continue
     if vyber == 1:
         jmeno = input("Zadejte jméno: ")
@@ -73,5 +73,6 @@ while not konec:
                 
     elif vyber == 4:
         konec = True
+        print("")
     else:
         print("Neplatná volba zkus znova")      
