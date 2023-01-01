@@ -1,0 +1,1 @@
+Zpracovaný projek do kurzu v první verzi
