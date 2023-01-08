@@ -21,29 +21,14 @@ while not konec:
     if vyber == 1:
         Rozhrani.pridat_novy()
         continue
+    
     elif vyber == 2:
         Rozhrani.seznam()
             
     elif vyber == 3:
-        print("*" * znakovac)
-        print("Zahajuji vyhledávání")
-        print("*" * znakovac)
-        jmeno = input("Zadejte jméno: ")
-        prijmeni = input("Zadejte příjmení: ")
-        search_indices = [index for (index, item) in enumerate(pojisteni) if item.jmeno == jmeno or item.prijmeni == prijmeni]
-        print("*" * znakovac)
-        pause
-        if len(search_indices) > 0:
-            for i in search_indices:
-                print(pojisteni[i])
-        else:
-            print("Nikdo takový tady není.")
-        print("*" * znakovac)
-        input("Pokračujte libovolnou klávesou... ")
-        print("")
+        Rozhrani.vyhledat()
                 
     elif vyber == 4:
         konec = True
         print("")
-    else:
-        print("Neplatná volba zkus znova")      
+      

@@ -18,9 +18,16 @@ class Rozhrani:
     def select(select = 4) -> int:
         try:
             select = int(input())
-            return select
+            if select in range(1,5):
+                return select
+            else:
+                erorek = True                
         except ValueError:
-            print('Neplatná volba, zkus to znovu')
+            erorek = True
+        if erorek:
+            print('Neplatná volba, zkus to znovu. \n')
+        else:
+           pass 
         
     def pridat_novy():
         jmeno = input("Zadejte jméno: ")
@@ -48,3 +55,21 @@ class Rozhrani:
         print("*" * Rozhrani.znakovac)
         input("Pokračujte libovolnou klávesou... ")
         print("")
+        
+    def vyhledat():
+        print("*" * Rozhrani.znakovac)
+        print("Zahajuji vyhledávání")
+        print("*" * Rozhrani.znakovac)
+        jmeno = input("Zadejte jméno: ")
+        prijmeni = input("Zadejte příjmení: ")
+        search_indices = [index for (index, item) in enumerate(Rozhrani.pojisteni) if item.jmeno == jmeno or item.prijmeni == prijmeni]
+        print("*" * Rozhrani.znakovac)
+        
+        if len(search_indices) > 0:
+            for i in search_indices:
+                print(Rozhrani.pojisteni[i])
+        else:
+            print("Nikdo takový tady není.")
+        print("*" * Rozhrani.znakovac)
+        input("Pokračujte libovolnou klávesou... ")
+        print("") 
