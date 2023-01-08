@@ -1,14 +1,13 @@
 from pojistnik import Pojistnik
+from rozhrani import Rozhrani
 import time
 
-pojisteni = []
+pojisteni = Rozhrani.pojisteni
 konec = False
 znakovac = 60
 pause = time.sleep(1)
 
-print("-" * znakovac)
-print("Evidence pojištěných")
-print("-" * znakovac)
+Rozhrani.head()
 
 prvni = Pojistnik("Ivan", "Vopršálek", 38, 123456789)
 pojisteni.append(prvni)
@@ -16,32 +15,12 @@ prvni = Pojistnik("Marek", "Nalezený", 32, 147852369)
 pojisteni.append(prvni)
 
 while not konec:
-    print("Vyberte si akci: ")
-    print("1 - Přidat nového pojistěnce")
-    print("2 - Vypsat vsechny pojistene")
-    print("3 - Vyhledat pojistneho")
-    print("4 - Konec")
-    try:
-        vyber = int(input())
-    except ValueError:
-        print("Neplatná volba zkus to znova")
-        continue
+    Rozhrani.select_UI()
+    vyber = Rozhrani.select() 
+    
     if vyber == 1:
-        jmeno = input("Zadejte jméno: ")
-        prijmeni = input("Zadejte příjmení: ")
-        try:
-            vek = int(input("Zadejte věk: "))
-            telefon = int(input("Zadejte telefoní číslo: "))
-        except ValueError:
-            print("\n Nemělo by to být náhodou číslo?\n Zkus to znovu.\n")
-            continue
-
-        novy = Pojistnik(jmeno, prijmeni, vek, telefon)
-        pojisteni.append(novy)
-        pause
-        input("Data jsou uložena. Pokračujte libovolnou klávesou... ")
-        print("")
-
+        Rozhrani.pridat_novy()
+        continue
     elif vyber == 2:
         print("*" * znakovac)
         print("Seznam pojištěných: ")
