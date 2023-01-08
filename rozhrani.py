@@ -39,3 +39,12 @@ class Rozhrani:
         else:
             pass
         
+    def seznam():
+        print("*" * Rozhrani.znakovac)
+        print("Seznam pojištěných: ")
+        print("*" * Rozhrani.znakovac)
+        for klient in Rozhrani.pojisteni:
+            print(klient)
+        print("*" * Rozhrani.znakovac)
+        input("Pokračujte libovolnou klávesou... ")
+        print("")

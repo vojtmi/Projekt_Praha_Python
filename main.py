@@ -22,15 +22,7 @@ while not konec:
         Rozhrani.pridat_novy()
         continue
     elif vyber == 2:
-        print("*" * znakovac)
-        print("Seznam pojištěných: ")
-        print("*"*znakovac)
-        pause
-        for klient in pojisteni:
-            print(klient)
-        print("*" * znakovac)
-        input("Pokračujte libovolnou klávesou... ")
-        print("")
+        Rozhrani.seznam()
             
     elif vyber == 3:
         print("*" * znakovac)
