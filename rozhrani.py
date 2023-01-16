@@ -11,15 +11,15 @@ class Rozhrani:
     def select_UI() -> str:
         
         print("1 - Přidat nového pojistěnce")
-        print("2 - Vypsat vsechny pojistene")
-        print("3 - Vyhledat pojistneho")
+        print("2 - Vypsat všechny pojistěnce")
+        print("3 - Vyhledat pojištěného")
         print("4 - Konec \n")
     
         
     def pridat_novy():
         
         print("*" * Rozhrani.znakovac)
-        print("Přidání nového pojištěnce: ")
+        print("Nový pojištěnec: ")
         print("*" * Rozhrani.znakovac)
         
         

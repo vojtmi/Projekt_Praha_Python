@@ -14,6 +14,7 @@ class Akce():
         try:
             select = int(input("Vyberte akci: "))
             if select in range(1,5):
+                print("")
                 return select
             else:
                 er = True                
@@ -26,23 +27,21 @@ class Akce():
             pass 
         
     def novyKlient():
-        
-        jmeno = input("Zadejte jméno: ")
-        prijmeni = input("Zadejte příjmení: ")
-        er = False
         try:
+            er = False
+            jmeno = input("Zadejte jméno: ").capitalize()
+            prijmeni = input("Zadejte příjmení: ").capitalize()
             vek = int(input("Zadejte věk: "))
             telefon = int(input("Zadejte telefoní číslo: "))
         except ValueError:
-            print("\n Nemělo by to být náhodou číslo?\n Zkus to znovu.\n")
             er = True
-        if not er:
-            novy = Pojistnik(jmeno.capitalize(), prijmeni.capitalize(), vek, telefon)
+        if not er and jmeno.isalpha() and prijmeni.isalpha():
+            novy = Pojistnik(jmeno, prijmeni, vek, telefon)
             Akce.pojisteni.append(novy)
-            input("Data jsou uložena. Pokračujte libovolnou klávesou... ")
+            input("Data jsou uložena. \nPokračujte libovolnou klávesou... ")
             print("")
         else:
-            pass
+            input("\n Něco se nepovedlo. \n Pokračuj libovolnou klávesou ...")
         
     def vypisPojistenych():
         
